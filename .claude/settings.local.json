@@ -5,7 +5,8 @@
       "Bash(claude \"Read PRD.md and write a Python script called model.py that: 1\\) Loads the Iris dataset from sklearn 2\\) Splits data 80/20 train/test 3\\) Trains an MLPClassifier 4\\) Prints the Confusion Matrix 5\\) Calculates Accuracy 6\\) Saves confusion_matrix.png 7\\) Saves loss_curve.png. Add clear comments throughout the code.\")",
       "Bash(python model.py)",
       "Bash(pip install:*)",
-      "Bash(claude \"Write a REPORT.md file but the content must be in Hebrew. Include: 1\\) Description of the Iris Dataset 2\\) Description of the model used 3\\) Confusion Matrix results showing 100% accuracy 4\\) Explanation of the loss curve graph 5\\) Conclusions. Reference the files confusion_matrix.png and loss_curve.png.\")"
+      "Bash(claude \"Write a REPORT.md file but the content must be in Hebrew. Include: 1\\) Description of the Iris Dataset 2\\) Description of the model used 3\\) Confusion Matrix results showing 100% accuracy 4\\) Explanation of the loss curve graph 5\\) Conclusions. Reference the files confusion_matrix.png and loss_curve.png.\")",
+      "Bash(python create_dataset.py)"
     ]
   }
 }

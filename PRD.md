@@ -1,89 +1,89 @@
-# Product Requirements Document: Iris Flower Classifier
+# מסמך דרישות מוצר: מסווג פרחי האירוס
 
-## Overview
+## סקירה כללית
 
-Build a machine learning classifier for the Iris flower dataset that trains a model, evaluates its performance via a Confusion Matrix, visualizes the training loss curve, and saves all generated graphs as image files.
-
----
-
-## Goals
-
-- Load the standard Iris dataset from `sklearn.datasets`
-- Split data into 80% training / 20% testing sets
-- Train a classification model
-- Display and save a Confusion Matrix
-- Plot and save a loss curve over training iterations
+בניית מסווג למידת מכונה עבור מערך הנתונים של פרחי האירוס, אשר מאמן מודל, מעריך את ביצועיו באמצעות מטריצת בלבול, מציג את עקומת האובדן של האימון, ושומר את כל הגרפים שנוצרו כקבצי תמונה.
 
 ---
 
-## Functional Requirements
+## מטרות
 
-### 1. Dataset
-
-- **Source:** `sklearn.datasets.load_iris()`
-- **Features:** 4 numeric features (sepal length, sepal width, petal length, petal width)
-- **Target:** 3 classes — Setosa, Versicolor, Virginica
-
-### 2. Data Split
-
-- Use `train_test_split` from `sklearn.model_selection`
-- Split ratio: **80% train / 20% test**
-- Set a fixed `random_state` for reproducibility
-
-### 3. Model
-
-- Train a classification model (e.g., MLPClassifier, Logistic Regression, or SVM)
-- The model must expose per-iteration loss values to enable a loss curve (e.g., `MLPClassifier` with `max_iter` set and `verbose=False`)
-- Record loss at each training iteration
-
-### 4. Confusion Matrix
-
-- Compute predictions on the test set
-- Generate a Confusion Matrix using `sklearn.metrics.confusion_matrix`
-- Display it as a heatmap (using `seaborn.heatmap` or `matplotlib`)
-- Label axes with class names
-- Save as **`confusion_matrix.png`**
-
-### 5. Loss Curve
-
-- Plot the model's loss value on the y-axis against iteration number on the x-axis
-- Title: "Training Loss Curve"
-- Label axes: "Iteration" (x), "Loss" (y)
-- Save as **`loss_curve.png`**
-
-### 6. Output Files
-
-| File                  | Description                          |
-|-----------------------|--------------------------------------|
-| `confusion_matrix.png`| Heatmap of predicted vs. actual labels |
-| `loss_curve.png`      | Loss value plotted over training iterations |
+- טעינת מערך הנתונים הסטנדרטי Iris מ-`sklearn.datasets`
+- חלוקת הנתונים ל-80% אימון / 20% בדיקה
+- אימון מודל סיווג
+- הצגה ושמירה של מטריצת בלבול
+- ציור ושמירה של עקומת אובדן לאורך איטרציות האימון
 
 ---
 
-## Non-Functional Requirements
+## דרישות פונקציונליות
 
-- **Language:** Python 3.8+
-- **Dependencies:** `scikit-learn`, `matplotlib`, `seaborn`, `numpy`
-- **Reproducibility:** Fixed random seeds throughout
-- **Code quality:** Single self-contained script (`classifier.py`)
+### 1. מערך הנתונים
+
+- **מקור:** `sklearn.datasets.load_iris()`
+- **תכונות:** 4 תכונות מספריות (אורך גביע, רוחב גביע, אורך עלה, רוחב עלה)
+- **יעד:** 3 מחלקות — Setosa, Versicolor, Virginica
+
+### 2. חלוקת הנתונים
+
+- שימוש ב-`train_test_split` מ-`sklearn.model_selection`
+- יחס חלוקה: **80% אימון / 20% בדיקה**
+- קיבוע `random_state` לשחזוריות התוצאות
+
+### 3. המודל
+
+- אימון מודל סיווג (לדוגמה: MLPClassifier, Logistic Regression, או SVM)
+- המודל חייב לחשוף ערכי אובדן לכל איטרציה לצורך עקומת האובדן (לדוגמה: `MLPClassifier` עם `max_iter` מוגדר ו-`verbose=False`)
+- תיעוד ערך האובדן בכל איטרציית אימון
+
+### 4. מטריצת הבלבול
+
+- חישוב תחזיות על קבוצת הבדיקה
+- יצירת מטריצת בלבול באמצעות `sklearn.metrics.confusion_matrix`
+- הצגה כ-heatmap (באמצעות `seaborn.heatmap` או `matplotlib`)
+- תיוג הצירים בשמות המחלקות
+- שמירה בשם **`confusion_matrix.png`**
+
+### 5. עקומת האובדן
+
+- ציור ערך האובדן על ציר Y כנגד מספר האיטרציה על ציר X
+- כותרת: "Training Loss Curve"
+- תיוג צירים: "Iteration" (x), "Loss" (y)
+- שמירה בשם **`loss_curve.png`**
+
+### 6. קבצי פלט
+
+| קובץ | תיאור |
+|------|--------|
+| `confusion_matrix.png` | מפת חום של תוויות חזויות מול תוויות אמיתיות |
+| `loss_curve.png` | ערך האובדן לאורך איטרציות האימון |
 
 ---
 
-## Acceptance Criteria
+## דרישות לא פונקציונליות
 
-- [ ] Script runs end-to-end without errors
-- [ ] Dataset is loaded from sklearn (no external files)
-- [ ] Data is split 80/20 with a fixed random seed
-- [ ] A classification model is trained
-- [ ] `confusion_matrix.png` is generated and saved
-- [ ] `loss_curve.png` is generated and saved
-- [ ] Both images are readable and correctly labeled
+- **שפה:** Python 3.8 ומעלה
+- **תלויות:** `scikit-learn`, `matplotlib`, `seaborn`, `numpy`
+- **שחזוריות:** קיבוע seeds אקראיים לאורך כל הקוד
+- **איכות קוד:** סקריפט עצמאי יחיד (`classifier.py`)
 
 ---
 
-## Out of Scope
+## קריטריוני קבלה
 
-- Hyperparameter tuning or cross-validation
-- Deployment or serving of the model
-- Interactive dashboards or web UI
-- Additional datasets beyond Iris
+- [ ] הסקריפט רץ מקצה לקצה ללא שגיאות
+- [ ] מערך הנתונים נטען מ-sklearn (ללא קבצים חיצוניים)
+- [ ] הנתונים מחולקים 80/20 עם seed אקראי קבוע
+- [ ] מודל סיווג מאומן
+- [ ] `confusion_matrix.png` נוצר ונשמר
+- [ ] `loss_curve.png` נוצר ונשמר
+- [ ] שתי התמונות קריאות ומתויגות כראוי
+
+---
+
+## מחוץ לתחום
+
+- כוונון היפר-פרמטרים או אימות צולב
+- פריסה או הגשת המודל
+- לוחות מחוונים אינטראקטיביים או ממשק ווב
+- מערכי נתונים נוספים מעבר ל-Iris
